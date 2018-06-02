@@ -3,7 +3,7 @@ public class Test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		SingleLinkedList list = new SingleLinkedList();
+		SinglyLinkedList list = new SinglyLinkedList();
 		
 		// error - linked list empty
 		list.delete(new Node(1));

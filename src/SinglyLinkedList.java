@@ -3,14 +3,14 @@
  * @author alessandra
  *
  */
-public class SingleLinkedList {
+public class SinglyLinkedList {
 	
 	//head represents the first node of the list 
 	public Node head;
 	
 	
 	/** Default constructor */
-	public SingleLinkedList() {
+	public SinglyLinkedList() {
 		head = null;
 	}
 	
