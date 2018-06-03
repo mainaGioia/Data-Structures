@@ -2,10 +2,12 @@
 /**
  * Doubly linked list implementation
  * e.g.  1 -> <- 2 -> <- 3 
+ * insert O(1) delete O(n)
+ * delete is O(1) in case you delete nodes (head.next) so no need to search
  * @author alessandra
  *
  */
-public class DoublyLinkedList {
+public class DoublyLinkedList implements List{
 	
 	/**
 	 * Contains a value (integer), a pointer to the previous node

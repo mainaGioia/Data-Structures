@@ -4,7 +4,7 @@
  * @author alessandra
  *
  */
-public class SinglyLinkedList {
+public class SinglyLinkedList implements List{
 	
 	/**
 	 * Class node 

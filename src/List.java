@@ -1,9 +1,9 @@
 
 public interface List {
 	
-	public void append(int n);
-	public void remove(int n);
-	
-	
+	public void addFirst(int n);
+	public void addLast(int n);
+	public void delete(int n);
+
 
 }
