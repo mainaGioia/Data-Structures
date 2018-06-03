@@ -62,8 +62,12 @@ public class SinglyLinkedList {
 		}
 		if(nodeToDelete == null)
 			System.err.println("There is no such an element in the list!");
-		else 
-			previousNode.next = nodeToDelete.next;		
+		else {
+			if (previousNode != null)
+				previousNode.next = nodeToDelete.next;
+			else 
+				head = nodeToDelete.next;
+		}
 	}
 	
 	
