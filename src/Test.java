@@ -35,6 +35,12 @@ public class Test {
 		//[ 1 3 ]
 		list.delete(5);
 		System.out.println(list);
-	}
+		
+		list.delete(1);
+		System.out.println(list);
+
+	}	
+		
+
 
 }

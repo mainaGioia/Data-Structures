@@ -1,6 +1,6 @@
 /**
  * Defines a singly linked list using nodes
- * e.g. head -> 1 -> 2 -> 3 -> 4 -> 5
+ * e.g.  1 -> 2 -> 3 -> 4 -> 5
  * @author alessandra
  *
  */
@@ -22,19 +22,13 @@ public class SinglyLinkedList {
 		}
 	}
 	
-	//head represents the first node of the list 
+	//reference to the first node of the list 
 	public Node head;
 	
 	
-	/** Default constructor */
-	public SinglyLinkedList() {
-		head = null;
-	}
-	
 	
 	public void addFirst(int n) {
-		Node node = new Node(n, head);
-		head = node;
+		head = new Node(n, head);
 	}
 	
 	
