@@ -1,4 +1,3 @@
-
 public class Test {
 
 	public static void main(String[] args) {
@@ -6,34 +5,35 @@ public class Test {
 		SinglyLinkedList list = new SinglyLinkedList();
 		
 		// error - linked list empty
-		list.delete(new Node(1));
+		list.delete(1);
 		
 		//[ 3 ]
-		list.addLast(new Node(3));
+		list.addLast(3);
 		System.out.println(list);
 		
 		//[ 2 3 ]
-		list.addFirst(new Node(2));
+		list.addFirst(2);
 		System.out.println(list);
 		
 		//[ 1 2 3 ]
-		list.addFirst(new Node(1));
+		list.addFirst(1);
 		System.out.println(list);
 		
 		//[ 1 2 3 4 ]
-		list.addLast(new Node(4));
+		list.addLast(4);
 		System.out.println(list);
 		
 		//[ 1 2 3 ]
-		list.delete(new Node(4));
+		list.delete(4);
 		System.out.println(list);
 		
 		//[ 1 3 ]
-		list.delete(new Node(2));
+		list.delete(2);
 		System.out.println(list);
 		
 		// error - there is no such an element in the list
-		list.delete(new Node(5));
+		//[ 1 3 ]
+		list.delete(5);
 		System.out.println(list);
 	}
 
