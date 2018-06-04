@@ -1,4 +1,9 @@
-
+/**
+ * FIFO - first in first out
+ * @author alessandra
+ *
+ * @param <E>
+ */
 public class Queue<E> {
 	
 	public CircularSinglyList<E> list;
@@ -58,8 +63,6 @@ public class Queue<E> {
 		System.out.println("dequeue (1): "+queue.dequeue());
 		System.out.println("queue []: "+queue.list);
 		System.out.println("rear null: "+queue.rear);
-
-
 		
 	}
 
