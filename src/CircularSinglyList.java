@@ -12,7 +12,7 @@ public class CircularSinglyList<E> implements List<E>{
 
 	@Override
 	public void addFirst(E n) {
-		Node node = new Node(null, n);
+		Node node = new Node(n, null);
 		if(last != null) {
 			node.next = last.next;
 			last.next = node;
@@ -26,7 +26,7 @@ public class CircularSinglyList<E> implements List<E>{
 
 	@Override
 	public void addLast(E n) {
-		Node node = new Node(null, n);
+		Node node = new Node(n, null);
 		if(last != null) {
 			node.next = last.next;  //the current node will poE to the first one
 			last.next = node;		//change the pointer to next for the previous last node
@@ -92,16 +92,6 @@ public class CircularSinglyList<E> implements List<E>{
 	}
 	
 	
-	
-	class Node{
-		public Node next;
-		public E value;
-		
-		public Node(Node n, E val) {
-			next = n;
-			value = val;
-		}
-	}
 	
 	
 	

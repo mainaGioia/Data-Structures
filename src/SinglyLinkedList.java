@@ -2,7 +2,7 @@
  * Defines a singly linked list using nodes
  * e.g.  1 -> 2 -> 3 -> 4 -> 5
  * @author alessandra
- *
+ * 
  */
 public class SinglyLinkedList<E> implements List<E>{
 	
