@@ -4,30 +4,15 @@
  * @author alessandra
  *
  */
-public class SinglyLinkedList implements List{
+public class SinglyLinkedList<E> implements List<E>{
 	
-	/**
-	 * Class node 
-	 * Contains a value (integer) and a pointer to the next node
-	 * @author alessandra
-	 *
-	 */
-	class Node{
-		public int value;
-		public Node next;
-		
-		public Node(int val, Node n) {
-			value = val;
-			next = n;
-		}
-	}
 	
 	//reference to the first node of the list 
 	public Node head;
 	
 	
 	
-	public void addFirst(int n) {
+	public void addFirst(E n) {
 		head = new Node(n, head);
 	}
 	
@@ -37,7 +22,7 @@ public class SinglyLinkedList implements List{
 	//while(last != null)
 	//    last = last.getNext();
 	//last = n;  does not work cause i should assign last(-1).next = n
-	public void addLast(int n) {
+	public void addLast(E n) {
 		if(head == null) {
 			head = new Node(n, null);
 			return;
@@ -49,14 +34,14 @@ public class SinglyLinkedList implements List{
 	}
 	
 	
-	public void delete(int n) {
+	public void delete(E n) {
 		if(head == null) {
 			System.err.println("Linked list empty! Add something first and then you can delete\n");
 			return;
 		}
 		Node nodeToDelete = head;
 		Node previousNode = null;
-		while(nodeToDelete != null && nodeToDelete.value != n) {
+		while(nodeToDelete != null && nodeToDelete.value != n) {				
 			previousNode = nodeToDelete;
 			nodeToDelete = nodeToDelete.next;
 		}
@@ -69,6 +54,7 @@ public class SinglyLinkedList implements List{
 				head = nodeToDelete.next;
 		}
 	}
+	
 	
 	
 	public String toString() {
@@ -85,7 +71,7 @@ public class SinglyLinkedList implements List{
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		SinglyLinkedList list = new SinglyLinkedList();
+		SinglyLinkedList<Integer> list = new SinglyLinkedList<Integer>();
 		
 		// error - linked list empty
 		list.delete(1);
@@ -129,3 +115,7 @@ public class SinglyLinkedList implements List{
 	
 
 }
+
+
+
+

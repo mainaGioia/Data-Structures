@@ -7,7 +7,7 @@
  * @author alessandra
  *
  */
-public class DoublyLinkedList implements List{
+public class DoublyLinkedList<E> implements List<E>{
 	
 	/**
 	 * Contains a value (integer), a pointer to the previous node
@@ -19,9 +19,9 @@ public class DoublyLinkedList implements List{
 		
 		public Node prev;
 		public Node next;
-		public int value;
+		public E value;
 		
-		public Node(Node p, Node n, int val) {
+		public Node(Node p, Node n, E val) {
 			prev = p;
 			next = n;
 			value = val;
@@ -36,7 +36,7 @@ public class DoublyLinkedList implements List{
 	 * Adds an integer at the beginning of the list
 	 * @param val
 	 */
-	public void addFirst(int val) {
+	public void addFirst(E val) {
 		Node node = new Node(null, head, val);
 		if(head != null)
 			head.prev = node;
@@ -47,7 +47,7 @@ public class DoublyLinkedList implements List{
 	 * Appends an integer at the end of the list
 	 * @param val
 	 */
-	public void addLast(int val) {
+	public void addLast(E val) {
 		Node n = head;
 		if(n == null) {
 			head = new Node(null, null, val);
@@ -63,7 +63,7 @@ public class DoublyLinkedList implements List{
 	 * Deletes all the elements with value specified
 	 * @param val
 	 */
-	public void delete(int val) {
+	public void delete(E val) {
 		Node n = head;
 		if(head == null) {
 			System.out.println("empty list. Insert something first");
@@ -106,7 +106,7 @@ public class DoublyLinkedList implements List{
 	
 	
 	public static void main(String[] args) { 
-		DoublyLinkedList dlist = new DoublyLinkedList();
+		DoublyLinkedList<Integer> dlist = new DoublyLinkedList<Integer>();
 		
 		// error - linked list empty
 		dlist.delete(1);

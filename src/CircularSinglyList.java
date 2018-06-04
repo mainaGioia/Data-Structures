@@ -5,13 +5,13 @@
  * @author alessandra
  *
  */
-public class CircularSinglyList implements List{
+public class CircularSinglyList<E> implements List<E>{
 	
 	public Node last;
 
 
 	@Override
-	public void addFirst(int n) {
+	public void addFirst(E n) {
 		Node node = new Node(null, n);
 		if(last != null) {
 			node.next = last.next;
@@ -25,10 +25,10 @@ public class CircularSinglyList implements List{
 
 
 	@Override
-	public void addLast(int n) {
+	public void addLast(E n) {
 		Node node = new Node(null, n);
 		if(last != null) {
-			node.next = last.next;  //the current node will point to the first one
+			node.next = last.next;  //the current node will poE to the first one
 			last.next = node;		//change the pointer to next for the previous last node
 			last = node;			//reassign pointer to last 
 			return;
@@ -40,7 +40,7 @@ public class CircularSinglyList implements List{
 
 
 	@Override
-	public void delete(int n) {
+	public void delete(E n) {
 		if(last == null) {
 			System.out.println("Empty list! Insert something first!");
 			return;
@@ -95,9 +95,9 @@ public class CircularSinglyList implements List{
 	
 	class Node{
 		public Node next;
-		public int value;
+		public E value;
 		
-		public Node(Node n, int val) {
+		public Node(Node n, E val) {
 			next = n;
 			value = val;
 		}
@@ -106,7 +106,7 @@ public class CircularSinglyList implements List{
 	
 	
 	public static void main(String[] args) { 
-		CircularSinglyList list = new CircularSinglyList();
+		CircularSinglyList<Integer> list = new CircularSinglyList<Integer>();
 		
 		// error - linked list empty
 		list.delete(1);
