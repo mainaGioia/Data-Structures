@@ -1,3 +1,4 @@
+package Linear;
 /**
  * LIFO last in first out structure
  * @author alessandra
@@ -40,6 +41,36 @@ public class Stack<E> {
 	}
 	
 	
+	/**
+	 * Recursively reverse the stack
+	 * Puts all the elements in the function call stack
+	 */
+	public void reverse() {
+		if(top != null) {
+			E a = pop();
+			reverse();
+			insertAtBottom(a);
+		}
+	}
+	
+	
+	/**
+	 * Basically reverts the elements in the function call stack
+	 * pushing them first and then popping to keep them in a second function
+	 * call stack, which will be reversed :) 
+	 * @param val
+	 */
+	public void insertAtBottom(E val) {
+		if(top == null)
+			push(val);
+		else {
+			E elem = pop();
+			insertAtBottom(val);
+			push(elem);
+		}
+	}
+	
+	
 	public static void main(String[] args) {
 		
 		Stack<Integer> stack = new Stack<Integer>();
@@ -72,6 +103,13 @@ public class Stack<E> {
 		//stack: [ 1 2 3 4 5 ]
 		System.out.println("peek: "+stack.peek());
 		System.out.println("stack: "+stack.list);
+		
+		stack.reverse();
+		System.out.println("stack [5 4 3 2 1]: "+stack.list);
+		
+		stack.reverse();
+		System.out.println("stack [1 2 3 4 5]: : "+stack.list);
+
 		
 		System.out.println("Expected 1: "+stack.pop());
 		System.out.println("stack: "+stack.list);

@@ -1,3 +1,4 @@
+package Linear;
 
 /**
  * Class node 

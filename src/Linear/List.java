@@ -1,3 +1,4 @@
+package Linear;
 
 public interface List <E>{
 	
