@@ -30,7 +30,7 @@ public class BST {
 	
 	public String toString(Node n) {
 		String s = "";
-		if(n == null)
+		if(n == null) //on all the leaves
 			return " ";
 		s += toString(n.left);
 		s += n.value;
@@ -46,7 +46,7 @@ public class BST {
 		bst.add(4);
 		bst.add(5);
 		bst.add(6);
-		System.out.println("bst (3) : "+bst.toString());
+		System.out.println("bst (3 4 5 6) : "+bst.toString());
 	}
 	
 
