@@ -24,20 +24,69 @@ public class BST {
 	}
 	
 	public String toString() {
-		return toString(root);
+		return printTree(root);
 	}
 	
 	
-	public String toString(Node n) {
+	public String printTree(Node n) {
 		String s = "";
 		if(n == null) //on all the leaves
 			return " ";
-		s += toString(n.left);
+		s += printTree(n.left);
 		s += n.value;
-		s += toString(n.right);
+		s += printTree(n.right);
 		return s;
 		
 	}
+	
+	
+	public String preorder() {
+		return preorderTraversal(root);
+	}
+	
+	
+	private String preorderTraversal(Node n) {
+		String s = "";
+		if(n == null)
+			return " ";
+		s += n.value;
+		s += inorderTraversal(n.left);
+		s += inorderTraversal(n.right);
+		return s;
+	}
+	
+	
+	public String inorder() {
+		return inorderTraversal(root);
+	}
+	
+	
+	private String inorderTraversal(Node n) {
+		String s = "";
+		if(n == null)
+			return " ";
+		s += preorderTraversal(n.left);
+		s += n.value;
+		s += preorderTraversal(n.right);
+		return s;		
+	}
+	
+	
+	public String postorder() {
+		return postorderTraversal(root);
+	}
+	
+	
+	private String postorderTraversal(Node n) {
+		String s = "";
+		if(n == null)
+			return " ";
+		s += postorderTraversal(n.left);
+		s += postorderTraversal(n.right);
+		s += n.value;
+		return s;
+	}
+	
 	
 	
 	public static void main(String[] args) {
@@ -47,6 +96,8 @@ public class BST {
 		bst.add(5);
 		bst.add(6);
 		System.out.println("bst (3 4 5 6) : "+bst.toString());
+		System.out.println("root (3): "+bst.root.value );
+		System.out.println("preorder (3 4 5 6): "+bst.preorder() );
 	}
 	
 

@@ -55,9 +55,9 @@ public class Stack<E> {
 	
 	
 	/**
-	 * Basically reverts the elements in the function call stack
-	 * pushing them first and then popping to keep them in a second function
-	 * call stack, which will be reversed :) 
+	 * Basically reverts the elements in the stack, if the stack is empty, push
+	 * otherwise pop all the elements, insert the one that has to go to the bottom
+	 * and then push the elements previously popped :) 
 	 * @param val
 	 */
 	public void insertAtBottom(E val) {
