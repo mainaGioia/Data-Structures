@@ -48,7 +48,7 @@ public class BST {
 	private String preorderTraversal(Node n) {
 		String s = "";
 		if(n == null)
-			return " ";
+			return "";
 		s += n.value;
 		s += inorderTraversal(n.left);
 		s += inorderTraversal(n.right);
@@ -64,7 +64,7 @@ public class BST {
 	private String inorderTraversal(Node n) {
 		String s = "";
 		if(n == null)
-			return " ";
+			return "";
 		s += preorderTraversal(n.left);
 		s += n.value;
 		s += preorderTraversal(n.right);
@@ -80,7 +80,7 @@ public class BST {
 	private String postorderTraversal(Node n) {
 		String s = "";
 		if(n == null)
-			return " ";
+			return "";
 		s += postorderTraversal(n.left);
 		s += postorderTraversal(n.right);
 		s += n.value;
@@ -98,6 +98,8 @@ public class BST {
 		System.out.println("bst (3 4 5 6) : "+bst.toString());
 		System.out.println("root (3): "+bst.root.value );
 		System.out.println("preorder (3 4 5 6): "+bst.preorder() );
+		System.out.println("inorder (3 4 5 6): "+bst.inorder() );
+		System.out.println("postorder (3 4 5 6): "+bst.postorder() );
 	}
 	
 
