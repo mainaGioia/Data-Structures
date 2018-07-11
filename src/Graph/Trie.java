@@ -29,11 +29,14 @@ public class Trie {
 	
 		TrieNode[] children = new TrieNode[ALPABETH_SIZE];
 		boolean isEndOfWord = false;
+		//for computing the longest common prefix
+		int frequency = 0;
 		
 		
 		public TrieNode() {
 			for (int i = 0; i < ALPABETH_SIZE; i++)
 				children[i] = null;
+			frequency++;
 		}
 	}
 	
@@ -50,10 +53,15 @@ public class Trie {
 		
 		for (int level = 0; level < length; level++) {
 			
+			//indexof('a') = 0, indexof('b') = 2... this returns the index for each char in key
+			//e.g. if 'a' is 97, b will be (int)'b' - 'a' => 98-97 = 1  
 			int index = key.charAt(level) - 'a';
 			
 			if(crawler.children[index] == null) 
 				crawler.children[index] = new TrieNode();
+			
+			else
+				crawler.children[index].frequency++;
 			
 			crawler = crawler.children[index];
 		}
@@ -77,10 +85,35 @@ public class Trie {
 	
 	
 	
+	public static String longestCommonPrefix(String keys[]) {
+		Trie t = new Trie();
+		int n = keys.length;
+		for (int i=0; i<n; i++)
+			t.insert(keys[i]);
+		
+		String prefix = "";
+		int level = 0;
+		TrieNode crawler = t.root;
+		//because it has to be the common prefix, i can just choose a random key in the array
+		//in this case, i choose the first
+		String word = keys[0];
+		
+		while(!crawler.isEndOfWord) {
+			int i = word.charAt(level) - 'a';
+			//crawler.children[index] cannot be null cause i inserted all the keys
+			crawler = crawler.children[i];
+			
+			if(crawler.frequency == n)
+				prefix += word.charAt(level);
+			level++;
+		}
+		return prefix;
+	}
+	
+	
 	public static void main(String args[])
     {
         // Input keys (use only 'a' through 'z' and lower case)
-        //String keys[] = {"the", "a", "there", "answer", "any", "by", "bye", "their"};
         String keys[] = {"a", "there", "answer", "any", "by", "bye", "their"};
       
         String output[] = {"Not present in trie", "Present in trie"};
@@ -118,6 +151,25 @@ public class Trie {
         if(t.search("their") == true)
             System.out.println("these --- " + output[1]);//present in trie
         else System.out.println("these --- " + output[0]);
+        
+        
+        String arr[] = {"geeksforgeeks", "geeks",
+                "geek", "geezer"};
+        String arr1[] = {"geekk","geekforgeeks","geeky","geektrust"};
+        
+        String ans = longestCommonPrefix(arr);
+
+        if (ans.length() != 0)
+        	System.out.println("The longest common prefix is "+ans);
+        else
+        	System.out.println("There is no common prefix");
+        
+        String ans1 = longestCommonPrefix(arr1);
+
+        if (ans1.length() != 0)
+        	System.out.println("The longest common prefix is "+ans1);
+        else
+        	System.out.println("There is no common prefix");
     }
 	
 
