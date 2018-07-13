@@ -25,7 +25,11 @@ public class Graph {
 	}
 	
 	
-	
+	/**
+	 * Creates the visited array (or map)
+	 * and then calls the function for the traversal
+	 * @param v
+	 */
 	public void DFS(int v) {
 		// works if the vertices are in order [0,1,2,3,4]
 		// otherwise use a map
@@ -34,7 +38,12 @@ public class Graph {
 	}
 	
 	
-	
+	/**
+	 * Traverses the graph taking a vertex from the adj[] if it has not been visited yet
+	 * recursively iterates
+	 * @param vertex
+	 * @param visited
+	 */
 	void DFStraversal(int vertex, boolean visited[]) {
 		visited[vertex] = true;
 		System.out.print(vertex+ " ");
@@ -43,6 +52,33 @@ public class Graph {
 			if(!visited[v])
 				DFStraversal(v, visited);
 		
+	}
+	
+	
+	
+	public void BFS(int v) {
+		boolean visited[] = new boolean[V];
+		
+		LinkedList<Integer> queue = new LinkedList<Integer>();
+		
+		queue.add(v);
+		visited[v] = true;
+
+		while(!queue.isEmpty()) {
+			
+			v = queue.pop();
+			System.out.print(v+ " ");
+			 
+			for (int vertex : adj[v]) {
+				if(!visited[vertex]) {
+					visited[vertex] = true;
+					//System.out.println("adding to the queue "+ vertex);
+					queue.add(vertex);
+				}
+			}
+			
+		}
+				
 	}
 	
 	
@@ -58,10 +94,15 @@ public class Graph {
         g.addEdge(2, 3);
         g.addEdge(3, 3);
  
-        System.out.println("Following is Depth First Traversal "+
+        System.out.println("Following is a Depth First Traversal "+
                            "(starting from vertex 2)");
  
         g.DFS(2);
+        
+        System.out.println("\nFollowing is Breadth First Traversal "+
+                "(starting from vertex 2)");
+        
+        g.BFS(2);
     }
 
 }
