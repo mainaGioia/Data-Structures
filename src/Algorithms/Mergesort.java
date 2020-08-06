@@ -24,7 +24,7 @@ public class Mergesort {
 				a[k++] = clone[i++];
 			else if(clone[j] < clone[i])
 				a[k++] = clone[j++];
-			else if (clone[j] < clone[i])
+			else
 				a[k++] = clone[i++];			
 		}
 	}
@@ -66,7 +66,7 @@ public class Mergesort {
 	}
 	
 	public static void main(String[] args){
-		int[] array = {5,4,3,2,1};
+		int[] array = {'w','h','a','t',' ','a',' ','w','o','n','d','e','r','f','u','l',' ','d','a','y',' ',':',')'};
 		//auxiliary array for avoiding 2 temp arrays every time
 		int[] aux = array.clone();
 		int[] clone = array.clone();
