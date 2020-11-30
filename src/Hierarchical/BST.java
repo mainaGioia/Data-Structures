@@ -50,8 +50,8 @@ public class BST {
 		if(n == null)
 			return "";
 		s += n.value;
-		s += inorderTraversal(n.left);
-		s += inorderTraversal(n.right);
+		s += preorderTraversal(n.left);
+		s += preorderTraversal(n.right);
 		return s;
 	}
 	
@@ -65,9 +65,9 @@ public class BST {
 		String s = "";
 		if(n == null)
 			return "";
-		s += preorderTraversal(n.left);
+		s += inorderTraversal(n.left);
 		s += n.value;
-		s += preorderTraversal(n.right);
+		s += inorderTraversal(n.right);
 		return s;		
 	}
 	
